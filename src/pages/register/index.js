@@ -3,67 +3,56 @@ import { Alert, View, Image, Text, TextInput, TouchableOpacity } from 'react-nat
 
 import logoImg from '../../assets/logo.png';
 import styles from './styles'; 
-import { useNavigation } from '@react-navigation/native'
 
 import api from '../../services/api';
 
-
 export default function Login(){
-    const navigation = useNavigation();
-
     const [password, setPassword] = useState('');
     const[email, setEmail] = useState('');
+    const[name, setName] = useState('');
 
-    function navigateToRegister(){
-        navigation.navigate('Register');
-    }
-    login = async () => {
+    register = async () => {
         const data = ({
             email,
-            password
+            password,
+            name
         })
         try {
-            const response = await api.post('login', data);
+            const response = await api.post('users', data);
             console.log(response.data);
             Alert.alert("Será que foi?", `${response.data}`)
         } catch (error) {
             alert('Deu ruim')
         }
     }
-
     return (
         <View style={styles.container}>
             <View style={styles.header}>
+                <Text style={ styles.headerText }>Torne o mundo um local melhor!</Text>
                 <Image style={styles.logo} source={logoImg}/>
-                <Text style={ styles.headerText }>Seja bem vindo!</Text>
             </View> 
             <TextInput 
                 style={styles.input} 
-                // value={email}
+                onChangeText={(val) => setName(val)}
+                placeholder='Digite seu nome' 
+            />
+            <TextInput 
+                style={styles.input} 
                 onChangeText={(val) => setEmail(val)}
                 placeholder='Digite seu E-mail' 
             />
             <TextInput 
                 style={styles.input} 
                 secureTextEntry={true} 
-                // value={password}
                 onChangeText={(val) => setPassword(val)}
                 placeholder='Digite sua senha' 
             />
             <TouchableOpacity 
                 style={styles.button}
-                onPress={ () => { this.login() }}
+                onPress={ () => { this.register() }}
             >
-                <Text style={styles.buttonText}>Login</Text>
+                <Text style={styles.buttonText}>Cadastrar</Text>
             </TouchableOpacity>
-
-            <TouchableOpacity 
-        
-                onPress={navigateToRegister}
-            >
-                <Text style={styles.description}>Inscreva-se e salve o mundo!!</Text>
-            </TouchableOpacity>
-  
         </View>
     )
 }
