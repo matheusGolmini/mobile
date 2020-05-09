@@ -8,7 +8,14 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         alignContent: 'center'
+        // paddingHorizontal: 24,
+        // paddingTop: Constants.statusBarHeight + 20
     },
+    // header: {
+    //     flexDirection: 'row',
+    //     justifyContent: 'space-between',
+    //     alignItems: 'center'
+    // },
     logo: {
         width: 150,
         height: 150,
@@ -54,4 +61,19 @@ export default StyleSheet.create({
         alignSelf:"center",
         fontWeight:"bold"
     }
+    // headerTextBold: { 
+    //     fontWeight: 'bold'
+    // },
+    // title: {
+    //     fontSize: 30,
+    //     marginBottom: 16,
+    //     marginTop: 16,
+    //     color: '#13131a',
+    //     fontWeight: 'bold'
+    // },
+    // description: {
+    //     fontSize: 16,
+    //     lineHeight:24,
+    //     color: '#737380'
+    // }
 });

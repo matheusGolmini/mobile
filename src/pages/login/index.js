@@ -28,6 +28,7 @@ export default function Login(){
         <View style={styles.container}>
             <View style={styles.header}>
                 <Image style={styles.logo} source={logoImg}/>
+                <Text style={ styles.logoText }>Vida Sustentável</Text>
                 <Text style={ styles.headerText }>Seja bem vindo!</Text>
             </View> 
             <TextInput 
@@ -49,10 +50,7 @@ export default function Login(){
             >
                 <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
-
-         
-            <Text style={styles.title}>Bem vindo</Text>
-            <Text style={styles.description}>Faça login e salve o mundo!!</Text>
+            <Text style={styles.description}>Inscreva-se e salve o mundo!</Text>
         </View>
     )
 }
