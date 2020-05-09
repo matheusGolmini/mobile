@@ -35,6 +35,7 @@ export default function Login(){
         <View style={styles.container}>
             <View style={styles.header}>
                 <Image style={styles.logo} source={logoImg}/>
+                <Text style={ styles.logoText }>Vida Sustentável</Text>
                 <Text style={ styles.headerText }>Seja bem vindo!</Text>
             </View> 
             <TextInput 
@@ -58,7 +59,6 @@ export default function Login(){
             </TouchableOpacity>
 
             <TouchableOpacity 
-        
                 onPress={navigateToRegister}
             >
                 <Text style={styles.description}>Inscreva-se e salve o mundo!!</Text>
