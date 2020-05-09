@@ -17,8 +17,8 @@ export default StyleSheet.create({
     logo: {
         width: 150,
         height: 150,
-        borderRadius: 100
-
+        borderRadius: 100,
+        alignSelf:"center"
     },
     input: {
         marginTop: 10,
@@ -43,6 +43,6 @@ export default StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         color: '#fff'
-    }
+    },
 
 });

@@ -59,9 +59,10 @@ export default function Login(){
             </TouchableOpacity>
 
             <TouchableOpacity 
+                style={styles.button}
                 onPress={navigateToRegister}
             >
-                <Text style={styles.description}>Inscreva-se e salve o mundo!!</Text>
+                <Text style={styles.buttonText}>Inscreva-se e salve o mundo!!</Text>
             </TouchableOpacity>
   
         </View>

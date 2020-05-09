@@ -3,6 +3,7 @@ import { Alert, View, Image, Text, TextInput, TouchableOpacity } from 'react-nat
 
 import logoImg from '../../assets/logo.png';
 import styles from './styles'; 
+import stylesGlobal from '../styles-global';
 
 import api from '../../services/api';
 
@@ -28,8 +29,9 @@ export default function Login(){
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={ styles.headerText }>Torne o mundo um local melhor!</Text>
                 <Image style={styles.logo} source={logoImg}/>
+                <Text style={ stylesGlobal.logoText }>Vida Sustentável</Text>
+                <Text style={ stylesGlobal.headerText }>Torne o mundo um local melhor!</Text>
             </View> 
             <TextInput 
                 style={styles.input} 
@@ -39,7 +41,7 @@ export default function Login(){
             <TextInput 
                 style={styles.input} 
                 onChangeText={(val) => setEmail(val)}
-                placeholder='Digite seu E-mail' 
+                placeholder='Digite seu e-mail' 
             />
             <TextInput 
                 style={styles.input} 
