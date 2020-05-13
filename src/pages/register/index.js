@@ -31,7 +31,7 @@ export default function Login(){
             <View style={styles.header}>
                 <Image style={styles.logo} source={logoImg}/>
                 <Text style={ stylesGlobal.logoText }>Vida Sustentável</Text>
-                <Text style={ stylesGlobal.headerText }>Torne o mundo um local melhor!</Text>
+                <Text style={ stylesGlobal.headerText }>Torne o mundo um lugar melhor!</Text>
             </View> 
             <TextInput 
                 style={styles.input} 
