@@ -7,7 +7,7 @@ import stylesGlobal from '../styles-global';
 
 import api from '../../services/api';
 
-export default function Login(){
+export default function Reagister(){
     const [password, setPassword] = useState('');
     const[email, setEmail] = useState('');
     const[name, setName] = useState('');

@@ -17,15 +17,24 @@ export default function Login(){
     function navigateToRegister(){
         navigation.navigate('Register');
     }
+    function navigateToProfile(){
+        navigation.navigate('Profile');
+    }
     login = async () => {
         const data = ({
-            email,
+            email: email.toLowerCase(),
             password
         })
         try {
             const response = await api.post('login', data);
-            console.log(response.data);
-            Alert.alert("Será que foi?", `${response.data}`)
+            console.log(response.email);
+            if(!response){
+                Alert.alert("Você não foi encontrado na base")
+            }
+            
+            //levar para a página de perf
+            navigateToProfile()
+           
         } catch (error) {
             alert('Deu ruim')
         }
