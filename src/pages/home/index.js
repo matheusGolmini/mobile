@@ -17,7 +17,7 @@ export default function Home(){
                 <Image style={styles.logo} source={robo}/>
                 <Text style={styles.level}> Level 1</Text>
             </View> 
-            <Footer/>
+            <Footer />
         </View>
     )
 }

@@ -17,8 +17,8 @@ export default function Login(){
     function navigateToRegister(){
         navigation.navigate('Register');
     }
-    function navigateToProfile(){
-        navigation.navigate('Profile');
+    function navigateToHome(){
+        navigation.navigate('Home');
     }
     login = async () => {
         const data = ({
@@ -33,7 +33,7 @@ export default function Login(){
             }
             
             //levar para a página de perf
-            navigateToProfile()
+            navigateToHome()
            
         } catch (error) {
             alert('Deu ruim')
