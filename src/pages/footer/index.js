@@ -27,7 +27,7 @@ export default function Footer(){
                 style={styles.button}
                 onPress={navigateToHome}
             >
-                <Feather name="home" size={25} color="black"/>
+                <Feather name="home" size={25} color="white"/>
                 <Text style={styles.iconText}> Home </Text>
 
             </TouchableOpacity>
@@ -35,21 +35,21 @@ export default function Footer(){
                 style={styles.button}
                 onPress={navigateToProfile}
             >
-                <Feather name="user" size={25} color="black"/>
+                <Feather name="user" size={25} color="white"/>
                 <Text style={styles.iconText}> Perfil </Text>
             </TouchableOpacity>
             <TouchableOpacity 
                 style={styles.button}
                 onPress={navigateToTasks}
             >
-                <Feather name="book" size={25} color="black"/>
+                <Feather name="book" size={25} color="white"/>
                 <Text style={styles.iconText}> Missões</Text>
             </TouchableOpacity>
             <TouchableOpacity 
                 style={styles.button}
                 onPress={logout}
             >
-                <Feather name="power" size={25} color="black"/>
+                <Feather name="power" size={25} color="white"/>
                 <Text style={styles.iconText}> Sair </Text>
 
             </TouchableOpacity>

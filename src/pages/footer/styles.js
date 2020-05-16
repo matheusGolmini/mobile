@@ -2,10 +2,15 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     footer:{
-        flex:1,
+        position: 'absolute',
+        flex:0.1,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        height:60,
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'flex-end',
+        backgroundColor: '#A2C43A',
     },
     power:{
         alignItems: 'center'
@@ -16,14 +21,14 @@ export default StyleSheet.create({
         marginLeft: 5,
         borderRadius: 4,
         alignItems: 'center',
-        justifyContent: 'center'
-        
+        justifyContent: 'center',
     },
     iconText: {
         fontSize: 20,
-        color: "black",
+        color: "white",
         fontWeight:"bold",
         alignContent: 'center',
         alignItems: 'center'
     },
+    
 });
