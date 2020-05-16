@@ -12,7 +12,8 @@ export default StyleSheet.create({
     logo: {
         width: 150,
         height: 150,
-        borderRadius: 100
+        borderRadius: 100,
+        marginLeft: 10
     },
     input: {
         marginTop: 10,
@@ -22,12 +23,13 @@ export default StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 15,
         fontSize: 16,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: '#A2C43A'
     },
     button : {
         width: 300,
         height: 42,
-        backgroundColor: '#3498db',
+        backgroundColor: '#A2C43A',
         marginTop: 10,
         borderRadius: 4,
         alignItems: 'center',
@@ -38,17 +40,9 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         color: '#fff',
     },
-    logoText: { 
-        fontSize: 15,
-        color: '#737380',
-        marginBottom:50,
-        marginTop:10,
-        alignSelf:"center",
-        fontWeight:"bold"
-    },
     headerText: { 
-        fontSize: 15,
-        color: '#737380',
+        fontSize: 25,
+        color: '#A2C43A',
         marginBottom:10,
         marginTop:50,
         alignSelf:"center",

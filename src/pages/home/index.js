@@ -3,11 +3,7 @@ import { View, Image, Text } from 'react-native';
 
 import robo from '../../assets/robo.jpeg';
 import styles from './styles'; 
-// import stylesGlobal from '../styles-global';
 import Footer from '../footer';
-
-// import api from '../../services/api';
-// import { useNavigation } from '@react-navigation/core';
 
 export default function Home(){
 

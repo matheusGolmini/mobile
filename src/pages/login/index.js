@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, View, Image, Text, TextInput, TouchableOpacity } from 'react-native';
+import { Alert, View, Image, Text, TextInput, TouchableOpacity, StatusBar } from 'react-native';
 
 import logoImg from '../../assets/logo.png';
 import styles from './styles'; 
@@ -42,21 +42,20 @@ export default function Login(){
 
     return (
         <View style={styles.container}>
+            <StatusBar barStyle="light-content" backgroundColor="#A2C43A"/>
             <View style={styles.header}>
+            
                 <Image style={styles.logo} source={logoImg}/>
-                <Text style={ styles.logoText }>Vida Sustentável</Text>
                 <Text style={ styles.headerText }>Seja bem vindo!</Text>
             </View> 
             <TextInput 
                 style={styles.input} 
-                // value={email}
                 onChangeText={(val) => setEmail(val)}
                 placeholder='Digite seu E-mail' 
             />
             <TextInput 
                 style={styles.input} 
                 secureTextEntry={true} 
-                // value={password}
                 onChangeText={(val) => setPassword(val)}
                 placeholder='Digite sua senha' 
             />
