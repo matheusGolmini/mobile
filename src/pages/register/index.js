@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Alert, View, Image, Text, TextInput, TouchableOpacity } from 'react-native';
 
 import logoImg from '../../assets/logo.png';
-import styles from './styles'; 
 import stylesGlobal from '../styles-global';
 
 import api from '../../services/api';
@@ -27,33 +26,31 @@ export default function Reagister(){
         }
     }
     return (
-        <View style={styles.container}>
-            <View style={styles.header}>
-                <Image style={styles.logo} source={logoImg}/>
-                <Text style={ stylesGlobal.logoText }>Vida Sustentável</Text>
-                <Text style={ stylesGlobal.headerText }>Torne o mundo um lugar melhor!</Text>
-            </View> 
+        <View style={stylesGlobal.container}>
+            <Image style={stylesGlobal.logo} source={logoImg}/>
+            <Text style={ stylesGlobal.headerText }>Vida Sustentável</Text>
+      
             <TextInput 
-                style={styles.input} 
+                style={stylesGlobal.input} 
                 onChangeText={(val) => setName(val)}
                 placeholder='Digite seu nome' 
             />
             <TextInput 
-                style={styles.input} 
+                style={stylesGlobal.input} 
                 onChangeText={(val) => setEmail(val)}
                 placeholder='Digite seu e-mail' 
             />
             <TextInput 
-                style={styles.input} 
+                style={stylesGlobal.input} 
                 secureTextEntry={true} 
                 onChangeText={(val) => setPassword(val)}
                 placeholder='Digite sua senha' 
             />
             <TouchableOpacity 
-                style={styles.button}
+                style={stylesGlobal.button}
                 onPress={ () => { this.register() }}
             >
-                <Text style={styles.buttonText}>Cadastrar</Text>
+                <Text style={stylesGlobal.buttonText}>Cadastrar</Text>
             </TouchableOpacity>
         </View>
     )

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Alert, View, Image, Text, TextInput, TouchableOpacity, StatusBar } from 'react-native';
 
 import logoImg from '../../assets/logo.png';
-import styles from './styles'; 
+import stylesGlobal from '../styles-global';
 import { useNavigation } from '@react-navigation/native'
 
 import api from '../../services/api';
@@ -41,36 +41,34 @@ export default function Login(){
     }
 
     return (
-        <View style={styles.container}>
+        <View style={stylesGlobal.container}>
             <StatusBar barStyle="light-content" backgroundColor="#A2C43A"/>
-            <View style={styles.header}>
-            
-                <Image style={styles.logo} source={logoImg}/>
-                <Text style={ styles.headerText }>Seja bem vindo!</Text>
-            </View> 
+            <Image style={stylesGlobal.logo} source={logoImg}/>
+            <Text style={ stylesGlobal.headerText }>Seja bem vindo!</Text>
+ 
             <TextInput 
-                style={styles.input} 
+                style={stylesGlobal.input} 
                 onChangeText={(val) => setEmail(val)}
                 placeholder='Digite seu E-mail' 
             />
             <TextInput 
-                style={styles.input} 
+                style={stylesGlobal.input} 
                 secureTextEntry={true} 
                 onChangeText={(val) => setPassword(val)}
                 placeholder='Digite sua senha' 
             />
             <TouchableOpacity 
-                style={styles.button}
+                style={stylesGlobal.button}
                 onPress={ () => { this.login() }}
             >
-                <Text style={styles.buttonText}>Login</Text>
+                <Text style={stylesGlobal.buttonText}>Login</Text>
             </TouchableOpacity>
 
             <TouchableOpacity 
-                style={styles.button}
+                style={stylesGlobal.button}
                 onPress={navigateToRegister}
             >
-                <Text style={styles.buttonText}>Inscreva-se e salve o mundo!!</Text>
+                <Text style={stylesGlobal.buttonText}>Inscreva-se e salve o mundo!!</Text>
             </TouchableOpacity>
   
         </View>
