@@ -20,21 +20,19 @@ export default function Login(){
     function navigateToHome(){
         navigation.navigate('Home');
     }
-    login = async () => {
+    async function login() {
         const data = ({
             email: email.toLowerCase(),
             password
         })
         try {
             const response = await api.post('login', data);
-            console.log(response.email);
-            if(!response){
+            console.log(response.data.user.email);
+            if(!response.data){
                 Alert.alert("Você não foi encontrado na base")
+            }else{
+                navigateToHome()
             }
-            
-            //levar para a página de perf
-            navigateToHome()
-           
         } catch (error) {
             alert('Deu ruim')
         }
@@ -59,7 +57,7 @@ export default function Login(){
             />
             <TouchableOpacity 
                 style={stylesGlobal.button}
-                onPress={ () => { this.login() }}
+                onPress={login}
             >
                 <Text style={stylesGlobal.buttonText}>Login</Text>
             </TouchableOpacity>
