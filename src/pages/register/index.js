@@ -5,11 +5,19 @@ import logoImg from '../../assets/logo.png';
 import stylesGlobal from '../styles-global';
 
 import api from '../../services/api';
+import { useNavigation } from '@react-navigation/core';
 
 export default function Reagister(){
+
+    const navigation = useNavigation();
+    
     const [password, setPassword] = useState('');
     const[email, setEmail] = useState('');
     const[name, setName] = useState('');
+
+    function navigateToLogin(){
+        navigation.navigate('Login');
+    }
 
     register = async () => {
         const data = ({
@@ -20,7 +28,8 @@ export default function Reagister(){
         try {
             const response = await api.post('users', data);
             console.log(response.data);
-            Alert.alert("Será que foi?", `${response.data}`)
+            navigateToLogin()
+        
         } catch (error) {
             alert('Deu ruim')
         }
