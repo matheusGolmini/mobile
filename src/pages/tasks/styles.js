@@ -1,23 +1,35 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        alignContent: 'center'
-    },
-    viewButton: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        bottom: 0,
-        // heigth: 100,
-        height: 800,
 
+    taskList: {
+        marginTop: 15,
     },
-    Button: {
-       justifyContent: 'space-between'
+    task: {
+        padding: 24,
+        borderRadius: 8,
+        backgroundColor: '#fff',
+        marginBottom: 16,
+    },
+    taskProperty: {
+        fontSize: 14,
+        color: '#41414d',
+        fontWeight: 'bold'
+    },
+    taskValue: {
+        marginTop: 8,
+        fontSize: 15,
+        marginBottom: 24,
+        color: '#737380'
+    },
+    tasksButton: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    tasksButtonText: {
+        color: '#A2C43A',
+        fontSize: 15,
+        fontWeight: 'bold'
     }
-    
 });
