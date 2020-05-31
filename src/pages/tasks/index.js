@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native'
 
 import Footer from '../footer';
 import styles from './styles';
@@ -9,12 +10,19 @@ import styles from './styles';
 
 
 function HomeScreen() {
+  const navigation = useNavigation();
+
+  function navigateToDetail(){
+    navigation.navigate('Detail');
+  }
+
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList 
         data={[1,2,3,4,5,6]}
         style={styles.taskList}
         keyExtractor={task => String(task)}
+       
         showsVerticalScrollIndicator={false}
         renderItem={()=> (
           <View style={styles.task}>
@@ -26,7 +34,7 @@ function HomeScreen() {
 
             <TouchableOpacity 
               style={styles.tasksButton} 
-              onPress={()=>{}}
+              onPress={navigateToDetail}
             >
               <Text style={styles.tasksButtonText}> Ver mais detalhes</Text>
               <Feather name="arrow-right" size={16} color="#A2C43A"/>
@@ -40,8 +48,13 @@ function HomeScreen() {
 }
 
 function SettingsScreen() {
+  const navigation = useNavigation();
+
+  function navigateToDetail(){
+    navigation.navigate('Detail');
+  }
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList 
         data={[1,2,3,4,5,6]}
         style={styles.taskList}
@@ -57,7 +70,7 @@ function SettingsScreen() {
 
             <TouchableOpacity 
               style={styles.tasksButton} 
-              onPress={()=>{}}
+              onPress={navigateToDetail}
             >
               <Text style={styles.tasksButtonText}> Ver mais detalhes</Text>
               <Feather name="arrow-right" size={16} color="#A2C43A"/>
