@@ -4,24 +4,25 @@ export default StyleSheet.create({
     container: {
         flex: 1,
         paddingHorizontal: 24,
-        marginTop:20,
+        marginTop: 40,
     },
-    titleView: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginEnd: 10
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
     },
-    title:{
-        fontSize: 30,
-        color: '#A2C43A',
-        fontWeight: 'bold',
+    logo: {
+        width: 100,
+        height: 100,
+        borderRadius: 100,
+        marginLeft: 15
     },
     task: {
         padding: 24,
         borderRadius: 8,
         backgroundColor: '#fff',
         marginBottom: 16,
-        marginTop: 25
+        marginTop: 50
     },
     taskProperty: {
         fontSize: 14,
@@ -35,10 +36,10 @@ export default StyleSheet.create({
         color: '#737380'
     },
     tasksButton: {
-        width: 300,
+        width: 350,
         height: 42,
         backgroundColor: '#A2C43A',
-        marginTop: 10,
+        marginTop: 1,
         borderRadius: 4,
         alignItems: 'center',
         justifyContent: 'center'
