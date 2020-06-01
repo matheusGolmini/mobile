@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Feather } from '@expo/vector-icons';
@@ -7,28 +7,41 @@ import { useNavigation } from '@react-navigation/native'
 import Footer from '../footer';
 import styles from './styles';
 
+import api from '../../services/api';
 
 
 function HomeScreen() {
+  const [tasks, setTasks] = useState([]);
+
   const navigation = useNavigation();
 
   function navigateToDetail(){
     navigation.navigate('Detail');
   }
 
+  async function loadTasks(){
+    const response = await api.get('/tasks');
+    setTasks(response.data);
+  }
+
+  useEffect(() => {
+    loadTasks();
+  }, [])
+
   return (
     <View style={styles.container}>
       <FlatList 
-        data={[1,2,3,4,5,6]}
+        data={tasks}
         style={styles.taskList}
-        keyExtractor={task => String(task)}
+        keyExtractor={task => String(task.id)}
        
         showsVerticalScrollIndicator={false}
-        renderItem={()=> (
+        renderItem={({item : task })=> (
           <View style={styles.task}>
             <Text style={styles.taskProperty}>Nome:</Text>
-            <Text style={styles.taskValue}>Reciclagem:</Text>
+            <Text style={styles.taskValue}>{task.name}</Text>
 
+            {/*Tasks n"ao vão possuir pontos???  */}
             <Text style={styles.taskProperty}>Pontos:</Text>
             <Text style={styles.taskValue}>50</Text>
 
