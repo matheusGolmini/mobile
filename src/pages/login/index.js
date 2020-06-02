@@ -26,8 +26,7 @@ export default function Login(){
             password
         })
         try {
-            const response = await api.post('login', data);
-            console.log(response.data.user.email);
+            const response = await api.post('users/login', data);
             if(!response.data){
                 Alert.alert("Você não foi encontrado na base")
             }else{
