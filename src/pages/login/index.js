@@ -17,8 +17,8 @@ export default function Login(){
     function navigateToRegister(){
         navigation.navigate('Register');
     }
-    function navigateToHome(){
-        navigation.navigate('Home');
+    function navigateToHome(id){
+        navigation.navigate('Home',{id});
     }
     async function login() {
         const data = ({
@@ -30,7 +30,7 @@ export default function Login(){
             if(!response.data){
                 Alert.alert("Você não foi encontrado na base")
             }else{
-                navigateToHome()
+                navigateToHome(response.data.id)
             }
         } catch (error) {
             alert('Deu ruim')

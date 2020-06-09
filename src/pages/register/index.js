@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Alert, View, Image, Text, TextInput, TouchableOpacity, Button } from 'react-native';
+import React, { useState } from 'react';
+import { Alert, View, Image, Text, TextInput, TouchableOpacity } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-// import Constants from 'expo-constants';
 
 import logoImg from '../../assets/user.png';
 import stylesGlobal from '../styles-global';
