@@ -5,7 +5,7 @@ import { Feather } from '@expo/vector-icons';
 import styles from './styles'; 
 import { useNavigation } from '@react-navigation/core';
 
-export default function Footer(user){
+export default function Footer(id){
     const navigation = useNavigation();
     function logout(){
         navigation.navigate('Login');
@@ -14,7 +14,7 @@ export default function Footer(user){
         navigation.navigate('Tasks');
     }
     function navigateToProfile(){
-        navigation.navigate('Profile', user);
+        navigation.navigate('Profile', { id: id.params});
     }
     function navigateToHome(){
         navigation.navigate('Home');

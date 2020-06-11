@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Alert, View, Image, Text, TextInput, TouchableOpacity, StatusBar } from 'react-native';
-
 import logoImg from '../../assets/logo.png';
 import stylesGlobal from '../styles-global';
 import { useNavigation } from '@react-navigation/native'

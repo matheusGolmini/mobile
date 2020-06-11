@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
-// import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 export default StyleSheet.create({
     container: {
@@ -8,44 +7,47 @@ export default StyleSheet.create({
         paddingHorizontal: 24,
         paddingTop: Constants.statusBarHeight + 20
     },
-    header: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-    },
     logo: {
         width: 150,
         height: 150,
         borderRadius: 100
     },
-    level: {
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    name: {
         fontSize: 30,
         fontWeight:"bold",
         color: "black",
     },
-    footer:{
-        flex:1,
+    skill: {
+        padding: 10,
+        borderRadius: 8,
+        backgroundColor: '#fff',
+        marginBottom: 16,
         flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'flex-end',
+        justifyContent: 'space-between',
+        alignItems: 'center' 
     },
-    power:{
+    skillProperty: {
+        fontSize: 14,
+        color: '#41414d',
+        fontWeight: 'bold',
+    },
+    skillValue: {
+        fontSize: 15,
+        color: '#737380'
+    },
+    skillButton: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         alignItems: 'center'
     },
-    button: {
-        flex:1,
-        backgroundColor: 'transparent',
-        marginLeft: 10,
-        borderRadius: 4,
-        alignItems: 'center',
-        justifyContent: 'center'
-        
-    },
-    iconText: {
-        fontSize: 20,
-        color: "black",
-        fontWeight:"bold",
-        alignContent: 'center',
-        alignItems: 'center'
-    },
+    skillButtonText: {
+        color: '#A2C43A',
+        fontSize: 15,
+        fontWeight: 'bold'
+    }
 });

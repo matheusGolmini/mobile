@@ -6,18 +6,26 @@ import api from '../../services/api';
 import robo from '../../assets/robo.jpeg';
 import styles from './styles'; 
 import Footer from '../footer';
+import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function Home(){
     const [ user, setUser] = useState({});
     const route = useRoute();
     const user_id = route.params.id;
 
-    useEffect(() => {
+    function getUser(){
         api.get(`users/${user_id}`)
-            .then(response => {
-                setUser(response.data)
-            })
+        .then(response => {
+            console.log("aqui:", response.data);
+            setUser(response.data)
+        })
+    }
+
+    useEffect(() => {
+        getUser();
     }, [user])
+
+    console.log("user:", user);
 
     if(!user.name){
         return null;
@@ -27,9 +35,32 @@ export default function Home(){
         <View style={styles.container}>
             <View style={styles.header}>
                 {user.image_uri !== null ? <Image style={styles.logo} source={{uri: user.image_uri}}/> : <Image style={styles.logo} source={robo}/>}
-                <Text style={styles.level}> Nome {user.name}</Text>
+                <Text style={styles.name}> Nome: {user.name}</Text>
             </View> 
-            <Footer params={user}/>
+            <FlatList 
+                data={[1,2,3]}
+                style={styles.taskList}
+                keyExtractor={task => String(task)}
+                showsVerticalScrollIndicator={false}
+                renderItem={()=> (
+                <View style={styles.skill}>
+                    <Text style={styles.skillProperty}>Skill:</Text>
+                    <Text style={styles.skillValue}>Reciclagem</Text>
+
+                    <Text style={styles.skillProperty}>Level:</Text>
+                    <Text style={styles.skillValue}>50</Text>
+
+                    {/* <TouchableOpacity 
+                    style={styles.tasksButton} 
+                    onPress={()=>{}}
+                    >
+                    <Text style={styles.tasksButtonText}> Ver mais detalhes</Text>
+                    <Feather name="arrow-right" size={16} color="#A2C43A"/> */}
+                     {/*</TouchableOpacity>  */}
+                </View>
+                )}
+            />
+            <Footer params={user.id}/>
         </View>
     )
 }
