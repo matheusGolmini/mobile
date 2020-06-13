@@ -1,31 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, AsyncStorage } from 'react-native';
 import { useRoute } from '@react-navigation/native'
 import api from '../../services/api';
 
 import robo from '../../assets/robo.jpeg';
 import styles from './styles'; 
 import Footer from '../footer';
-import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
+import { FlatList } from 'react-native-gesture-handler';
 
 export default function Home(){
-    const [ user, setUser] = useState({});
+    const [ user, setUser ] = useState({});
     const route = useRoute();
-    const user_id = route.params.id;
+    let user_id = route.params.id;
 
-    function getUser(){
-        api.get(`users/${user_id}`)
-        .then(response => {
-            console.log("aqui:", response.data);
-            setUser(response.data)
-        })
+    async function getUser() {
+        try {
+            if(!user.name || JSON.stringify(user) !== await AsyncStorage.getItem('@user')){
+                const res = await api.get(`users/${user_id}`);
+                setUser(res.data);
+            }
+        } catch (error) {
+            console.log("error: ", error)
+        }
+        
     }
 
-    useEffect(() => {
+    useEffect(()=>{
         getUser();
-    }, [user])
+    })
 
-    console.log("user:", user);
+
 
     if(!user.name){
         return null;
@@ -35,7 +39,7 @@ export default function Home(){
         <View style={styles.container}>
             <View style={styles.header}>
                 {user.image_uri !== null ? <Image style={styles.logo} source={{uri: user.image_uri}}/> : <Image style={styles.logo} source={robo}/>}
-                <Text style={styles.name}> Nome: {user.name}</Text>
+                <Text style={styles.name}>{user.name}</Text>
             </View> 
             <FlatList 
                 data={[1,2,3]}
@@ -60,7 +64,7 @@ export default function Home(){
                 </View>
                 )}
             />
-            <Footer params={user.id}/>
+            <Footer params={user.id} />
         </View>
     )
 }

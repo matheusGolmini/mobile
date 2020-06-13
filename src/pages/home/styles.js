@@ -13,14 +13,17 @@ export default StyleSheet.create({
         borderRadius: 100
     },
     header: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        // flexDirection: 'row',
+        // justifyContent: 'space-between',
         alignItems: 'center'
     },
     name: {
         fontSize: 30,
         fontWeight:"bold",
         color: "black",
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 25
     },
     skill: {
         padding: 10,
@@ -29,7 +32,7 @@ export default StyleSheet.create({
         marginBottom: 16,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center' 
+        alignItems: 'center',
     },
     skillProperty: {
         fontSize: 14,

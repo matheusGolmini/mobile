@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, View, Image, Text, TextInput, TouchableOpacity, StatusBar } from 'react-native';
+import { Alert, View, Image, Text, TextInput, TouchableOpacity, StatusBar, AsyncStorage } from 'react-native';
 import logoImg from '../../assets/logo.png';
 import stylesGlobal from '../styles-global';
 import { useNavigation } from '@react-navigation/native'
@@ -27,8 +27,9 @@ export default function Login(){
         try {
             const response = await api.post('users/login', data);
             if(!response.data){
-                Alert.alert("Você não foi encontrado na base")
+                Alert.alert("Senha ou e-mail estão incorretas!")
             }else{
+                await AsyncStorage.setItem("@user", JSON.stringify(response.data));
                 navigateToHome(response.data.id)
             }
         } catch (error) {

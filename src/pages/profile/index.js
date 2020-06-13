@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Alert, View, Image, Text, TextInput, TouchableOpacity } from 'react-native';
+import { Alert, View, Image, Text, TextInput, TouchableOpacity, AsyncStorage } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 
 import logoImg from '../../assets/user.png';
@@ -8,11 +8,10 @@ import stylesGlobal from '../styles-global';
 
 import api from '../../services/api';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import Footer from '../footer';
 
 export default function Home(){
-    const route = useRoute();
-    const user_id = route.params.id;
+    // const route = useRoute();
+    // const user_id = route.params.id;
 
     const navigation = useNavigation();
 
@@ -22,33 +21,40 @@ export default function Home(){
     const[name, setName] = useState('');
     const[user, setUser] = useState({});
 
+    
     useEffect(() => {
-        api.get(`users/${user_id}`)
-            .then(response => {
-                setUser(response.data)
-                setImage(response.data.image_uri)
-            })
+        AsyncStorage.getItem("@user").then(r => {
+            const res = JSON.parse(r);
+            setUser(res);
+            setImage(res.image_uri)
+            setName(res.name)
+            setPassword(res.password)
+            setEmail(res.email)
+            console.log("antiga: ", res.image_uri)
+        })
     }, [])
 
     const pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.All,
-        allowsEditing: true,
-        aspect: [4, 3],
-        quality: 1,
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1,
         });
         if (!result.cancelled) {
-        setImage(result.uri);
+            setImage(result.uri);
         }
     };
 
-    
+    function navigateToBack(){
+        navigation.goBack();
+    }    
 
     function navigateToHome(id){
         navigation.navigate('Home', {id});
     }
 
-    async function register () {
+    async function updateUser () {
         const data = ({
             email: email.toLowerCase(),
             password,
@@ -58,9 +64,9 @@ export default function Home(){
             is_admin: false
         });
         try {
-            console.log("data:", data);
             const response = await api.put(`users/${user.id}`, data);
-            console.log("response: ", response.data);
+            await AsyncStorage.setItem("@user", JSON.stringify(data))
+            console.log("image:", image)
             navigateToHome(response.data.id);
         } catch (error) {
             alert('Deu ruim');
@@ -100,11 +106,16 @@ export default function Home(){
             />
             <TouchableOpacity 
                 style={stylesGlobal.button}
-                onPress={ register }
+                onPress={ updateUser }
             >
                 <Text style={stylesGlobal.buttonText}>Alterar</Text>
             </TouchableOpacity>
-            <Footer/>
+            <TouchableOpacity 
+                style={stylesGlobal.button}
+                onPress={ navigateToBack }
+            >
+                <Text style={stylesGlobal.buttonText}>Voltar</Text>
+            </TouchableOpacity>
         </View>
     )
 
