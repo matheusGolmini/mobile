@@ -34,5 +34,23 @@ export default StyleSheet.create({
         color: '#A2C43A',
         fontSize: 15,
         fontWeight: 'bold'
-    }
+    },
+    headerNotTasks: {
+        flex: 1,
+        alignItems:"center",
+        justifyContent: "center",
+    },
+    textNotTask: {
+        fontSize: 25,
+        color: '#A2C43A',
+        marginBottom:50,
+        alignSelf:"center",
+        fontWeight:"bold"
+    },
+    imageNotTask: {
+        width: 300,
+        height: 300,
+        borderRadius: 150,
+        marginLeft: 15
+    },
 });

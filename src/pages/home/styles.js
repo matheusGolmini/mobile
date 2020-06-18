@@ -26,13 +26,16 @@ export default StyleSheet.create({
         marginTop: 25
     },
     skill: {
-        padding: 10,
-        borderRadius: 8,
+        padding: 24,
+        borderRadius: 10,
         backgroundColor: '#fff',
         marginBottom: 16,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
+        paddingHorizontal:20,
+        height: 250,
+        width: 200,
+        marginRight: 8,
+        marginTop: 30
+
     },
     skillProperty: {
         fontSize: 14,

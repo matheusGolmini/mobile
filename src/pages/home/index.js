@@ -42,26 +42,23 @@ export default function Home(){
                 <Text style={styles.name}>{user.name}</Text>
             </View> 
             <FlatList 
-                data={[1,2,3]}
+                data={user.userSkillList}
                 style={styles.taskList}
-                keyExtractor={task => String(task)}
+                keyExtractor={userSkillList => String(userSkillList.idUserSkill)}
                 showsVerticalScrollIndicator={false}
-                renderItem={()=> (
-                <View style={styles.skill}>
-                    <Text style={styles.skillProperty}>Skill:</Text>
-                    <Text style={styles.skillValue}>Reciclagem</Text>
+                horizontal={true}
+                renderItem={({item : userSkillList })=> (
+                    <View style={styles.skill}>
+                        <Text style={styles.skillProperty}>Habilidade:</Text>
+                        <Text style={styles.skillValue}>{userSkillList.skill.name}</Text>
 
-                    <Text style={styles.skillProperty}>Level:</Text>
-                    <Text style={styles.skillValue}>50</Text>
+                        <Text style={styles.skillProperty}>Level:</Text>
+                        <Text style={styles.skillValue}>{userSkillList.level}</Text>
 
-                    {/* <TouchableOpacity 
-                    style={styles.tasksButton} 
-                    onPress={()=>{}}
-                    >
-                    <Text style={styles.tasksButtonText}> Ver mais detalhes</Text>
-                    <Feather name="arrow-right" size={16} color="#A2C43A"/> */}
-                     {/*</TouchableOpacity>  */}
-                </View>
+                        <Text style={styles.skillProperty}>Experiência:</Text>
+                        <Text style={styles.skillValue}>{userSkillList.experience}</Text>
+
+                    </View>
                 )}
             />
             <Footer params={user.id} />

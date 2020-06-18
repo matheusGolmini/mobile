@@ -35,18 +35,26 @@ export default StyleSheet.create({
         marginBottom: 24,
         color: '#737380'
     },
+    footer: {
+        borderColor: '#999',
+        paddingVertical: 20,
+        paddingHorizontal: 32,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },  
     tasksButton: {
-        width: 350,
-        height: 42,
+        width: '48%',
         backgroundColor: '#A2C43A',
-        marginTop: 1,
-        borderRadius: 4,
-        alignItems: 'center',
-        justifyContent: 'center'
+        borderRadius: 10,
+        height: 50,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
+   
     tasksButtonText: {
         color: '#fff',
         fontSize: 15,
         fontWeight: 'bold'
-    }
+    },
 });
