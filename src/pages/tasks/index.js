@@ -100,7 +100,7 @@ function SettingsScreen() {
 
   useEffect(() => {
     loadTasks();
-  }, []);
+  });
 
 
   if(!tasks[0]) {

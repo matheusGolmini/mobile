@@ -15,8 +15,10 @@ export default function Home(){
 
     async function getUser() {
         try {
-            if(!user.name || JSON.stringify(user) !== await AsyncStorage.getItem('@user')){
+            const newUser = await AsyncStorage.getItem('@user')
+            if(!user.name || JSON.stringify(user) !== newUser){
                 const res = await api.get(`users/${user_id}`);
+                await AsyncStorage.setItem('@user', JSON.stringify(res.data));
                 setUser(res.data);
             }
         } catch (error) {

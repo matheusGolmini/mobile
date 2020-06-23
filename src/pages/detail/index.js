@@ -38,8 +38,6 @@ export default function Detail(){
         .then(task =>{
             setTask(task !== null ? JSON.parse(task) : []);
         });
-        console.log("user", user)
-        console.log("user", task)
     }, []);
 
 
@@ -49,8 +47,7 @@ export default function Detail(){
 
     async function  initialTask(){
         try {
-            const res = await api.post(`users/${user.id}/start_task/${task.id}`);
-            console.log(res);
+            await api.post(`users/${user.id}/start_task/${task.id}`);
             navigation.navigate("Home");
         } catch (error) {
             console.log("Error ---> ", error);
@@ -59,9 +56,10 @@ export default function Detail(){
 
     async function endTask(){
         try {
-            const res = await api.post(`users/${user.id}/complete_task/${task.id}`);
-            console.log(res);
-            navigation.navigate("Home");
+            await api.post(`users/${user.id}/complete_task/${task.id}`);
+            const newUSer = await api.get(`users/${user.id}`);
+            await AsyncStorage.setItem('@user', JSON.stringify(newUSer.data))
+            navigation.navigate("Home", {id: user.id });
         } catch (error) {
             console.log("Error ---> ", error);
         }
@@ -69,9 +67,10 @@ export default function Detail(){
 
     async function canceledTask(){
         try {
-            const res = await api.post(`users/${user.id}/cancel_task/${task.id}`);
-            console.log(res);
-            navigation.navigate("Home");
+            await api.post(`users/${user.id}/cancel_task/${task.id}`);
+            const newUSer = await api.get(`users/${user.id}`);
+            await AsyncStorage.setItem('@user', JSON.stringify(newUSer.data))
+            navigation.navigate("Home", {id: user.id });
         } catch (error) {
             console.log("Error ---> ", error);
         }
