@@ -89,18 +89,19 @@ function SettingsScreen() {
     const res = await AsyncStorage.getItem('@user');
     const user = JSON.parse(res);
     const response = await api.get(`/users/${user.id}`);
-    const progressTasks = response.data.userTaskList.map((task) => {
-      if(task.status !== 'c' && task.status !== 'x'){
+    const progressTasks = response.data.userTaskList.filter((task) => {
+      if(task.status === 'a'){
         return task;
       }
     })
+    console.log("aqui:", progressTasks);
     setTasks(progressTasks);
     await AsyncStorage.setItem('@user', JSON.stringify(response.data))
   }
 
   useEffect(() => {
     loadTasks();
-  });
+  }, []);
 
 
   if(!tasks[0]) {
@@ -113,7 +114,6 @@ function SettingsScreen() {
     )
   }
 
-  console.log(tasks)
   return (
     <View style={styles.container}>
       <FlatList 

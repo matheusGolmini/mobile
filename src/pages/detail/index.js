@@ -48,7 +48,9 @@ export default function Detail(){
     async function  initialTask(){
         try {
             await api.post(`users/${user.id}/start_task/${task.id}`);
-            navigation.navigate("Home");
+            const newUSer = await api.get(`users/${user.id}`);
+            await AsyncStorage.setItem('@user', JSON.stringify(newUSer.data))
+            navigation.navigate("Home", {id: user.id });
         } catch (error) {
             console.log("Error ---> ", error);
         }
