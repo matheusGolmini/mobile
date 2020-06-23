@@ -22,7 +22,10 @@ function HomeScreen() {
   }
 
   async function loadTasks(){
-    const response = await api.get('/tasks');
+    const user = await AsyncStorage.getItem('@user');
+    const parseUser = JSON.parse(user);
+    const response = await api.get(`/tasks/get_not_started_by_user/${parseUser.id}`);
+    console.log(response.data)
     setTasks(response.data);
   }
 
@@ -35,6 +38,7 @@ function HomeScreen() {
       <View style={styles.headerNotTasks}>
         <Text style={styles.textNotTask}>Concluio todas as tarefas</Text>
         <Image  style={ styles.imageNotTask } source={notTasks} />
+        <Footer />
       </View>
     )
   }
